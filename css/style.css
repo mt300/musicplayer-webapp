@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("../images/logo-millenium.jpeg");
+}
+.player {
+    border: 1px solid red;
+}
+.playlist {
+    border: 1px solid red;
+    margin: 2%;
+    padding: 2%;
+}
+.playlist-item {
+    border: 1px solid red;
+    margin: .5% 1%;
+    padding: 1%;
+}
+.container {
+    border: 1px solid red;
+}
