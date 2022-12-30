@@ -2,23 +2,241 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: black;
 }
-body {
-    background-image: url("../images/logo-millenium.jpeg");
-}
+/* body {
+    background-image: url("../images/logo-millenium.jpeg")  ;
+    background-color: #b0f0eb;
+} */
 .player {
-    border: 1px solid red;
+    border: 0px solid red;
 }
 .playlist {
-    border: 1px solid red;
+    /* border: 1px solid black; */
+     /* display: -webkit-box; */
+    /* display: -ms-flexbox; */
+    /* display: flex; */
+    border-radius: 30px;
+    box-shadow: rgb(172, 116, 227) 1px 3px 3px 3px;
     margin: 2%;
     padding: 2%;
 }
 .playlist-item {
-    border: 1px solid red;
+    border-bottom: 1px solid rgb(172, 116, 227);
     margin: .5% 1%;
     padding: 1%;
 }
 .container {
     border: 1px solid red;
 }
+
+#play {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#pButton {
+    float: left;
+  }
+  
+  #timeline {
+    width: 90%;
+    height: 2px;
+    margin-top: 20px;
+    margin-left: 10px;
+    float: left;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  #pButton {
+    margin-top: 12px;
+    cursor: pointer;
+  }
+  
+  #playhead {
+    width: 8px;
+    height: 8px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -3px;
+    background: black;
+    cursor: pointer;
+  }
+
+
+ /* space between parts */
+  body {
+    margin: 0;
+    /* display: -webkit-box; */
+    /* display: -ms-flexbox; */
+    /* display: flex; */
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #8D8D8D;
+    background: #FAF5FF;
+  }
+  
+  .music-player {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: auto;
+    display: block;
+    width: 472px;
+    height: 515px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .player-main {
+    position: relative;
+    width: 100%;
+    min-width: 472px;
+    padding: 24px;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+ 
+    background-color: rgba(230, 219, 241, 0.8);
+  }
+  
+  .main-current {
+    margin-bottom: 36px;
+  }
+  .main-current .current-keyvisual {
+    position: relative;
+    display: inline-block;
+  }
+  .main-current .current-keyvisual img {
+    position: relative;
+    z-index: 2;
+    width: 132px;
+    height: auto;
+    border-radius: 4px;
+  }
+  .main-current .current-keyvisual:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    width: 95%;
+    height: 80%;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-photo.png);
+    background-size: cover;
+    -webkit-filter: blur(35px);
+            filter: blur(35px);
+  }
+  .main-current .current-info {
+    display: inline-block;
+    padding: 15px 0 0 24px;
+    box-sizing: content-box;
+    vertical-align: top;
+  }
+  .main-current .current-info h1, .main-current .current-info p {
+    margin: auto;
+    padding: 0;
+  }
+  .main-current .current-info h1 {
+    margin-bottom: 13px;
+    font-size: 20px;
+    color: #26107B;
+  }
+  .main-current .current-info p {
+    font-size: 12px;
+    color: #26107B;
+  }
+  
+  .main-control {
+    position: relative;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-control .btn {
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    vertical-align: middle;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    opacity: .75;
+  }
+  .main-control .btn:hover {
+    opacity: 1;
+  }
+  .main-control .btn._previous {
+    margin-right: 17px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-previous.svg");
+    background-size: auto 80%;
+  }
+  .main-control .btn._pause {
+    margin-right: 17px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-pause.svg");
+  }
+  .main-control .btn._play {
+    margin-right: 17px;
+    background-image: 
+      /* linear-gradient(rgba(230, 219, 241, 1),transparent), */
+      url("../feather/play.svg");
+
+  }
+  .main-control .btn._next {
+    margin-right: 24px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-next.svg");
+    background-size: auto 80%;
+  }
+  .main-control .btn._timeline {
+    vertical-align: middle;
+    height: auto;
+    width: auto;
+    opacity: 1;
+  }
+  .main-control .btn._timeline > span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #26107B;
+  }
+  .main-control .btn._timeline > span.timescope {
+    position: relative;
+    margin: auto 12px;
+    width: 180px;
+    height: 3px;
+    border-radius: 20px;
+  }
+  .main-control .btn._timeline > span.timescope:before, .main-control .btn._timeline > span.timescope:after,
+  .main-control .btn._timeline > span.timescope .timescope-dot {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: #26107B;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .main-control .btn._timeline > span.timescope:before {
+    width: 100%;
+    opacity: .2;
+  }
+  .main-control .btn._timeline > span.timescope:after {
+    width: 63%;
+  }
+  .main-control .btn._timeline > span.timescope .timescope-dot {
+    top: -2.5px;
+    left: 63%;
+    z-index: 3;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+  }
