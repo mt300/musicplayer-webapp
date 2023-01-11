@@ -2,32 +2,99 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black;
+    color: rgba(244, 228, 247, 1);
 }
-/* body {
-    background-image: url("../images/logo-millenium.jpeg")  ;
-    background-color: #b0f0eb;
+
+/* .violet-theme {
+  --primary: 
 } */
+body {
+    /* background-image: url("../images/logo-millenium.jpeg")  ; */
+    margin: 0;
+    /* display: -webkit-box; */
+    /* display: -ms-flexbox; */
+    /* display: flex; */
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    /* color: #red; */
+    background-color: rgba(0, 0, 0, 0.75) ; 
+    background-image: radial-gradient( rgba(25, 25, 25, 0.75),rgba(66, 58, 62, 0.8));
+}
 .player {
     border: 0px solid red;
+}
+h2 {
+  color: rgba(255, 255, 255, 0.80);
 }
 .playlist {
     /* border: 1px solid black; */
      /* display: -webkit-box; */
     /* display: -ms-flexbox; */
     /* display: flex; */
+    /* background-color: rgba(93, 73, 71, 1); */
+    font-size: large;
+    background-image: 
+      radial-gradient(rgba(138, 126, 146, 0.531),rgba(138, 126, 146, 0.13));
+    /* background-color: rgba(138, 126, 146, 0.91); */
     border-radius: 30px;
-    box-shadow: rgb(172, 116, 227) 1px 3px 3px 3px;
-    margin: 2%;
+    /* box-shadow:rgb(172, 116, 227) 3px 5px 10px 5px; */
+    
+    border: 1px solid rgba(244, 228, 247, 1) ;
+    box-shadow: rgba(244, 228, 247, 0.85) 0px 1px 1px 3px;
+ 
+    margin: 5% 2%;
     padding: 2%;
 }
 .playlist-item {
-    border-bottom: 1px solid rgb(172, 116, 227);
-    margin: .5% 1%;
+    /* border-bottom: 1px solid rgb(172, 116, 227); */
+    background-image: 
+      radial-gradient(rgba(100, 93, 104, 0.53),rgba(66, 62, 69, 0.904));
+    
+    border: 1px solid rgba(244, 228, 247, 1);
+    /* box-shadow: rgba(244, 228, 247, 0.75) 0px 1px 1px 2px; */
+    margin: 1% 1%;
     padding: 1%;
+    border-radius: 15px;
+    /* background-color: rgba(230, 219, 241, 0.8); */
+    /* background-color: rgba(93, 73, 71, 0.5) ; */
+    
+}
+.playlist-item:hover {
+  /* border-bottom: 1px solid rgb(172, 116, 227); */
+  /* background-image: 
+    radial-gradient(rgba(100, 93, 104, 0.53),rgba(66, 62, 69, 0.904));
+  
+  border: 1px solid rgba(244, 228, 247, 1); */
+  color: white;
+  font-size: large;
+  border: 2px solid rgba(244, 228, 247, 0.95);
+  box-shadow: rgba(244, 228, 247, 0.95) 0px 1px 1px 2px;
+  /* margin: 1% 1%;
+  padding: 1%;
+  border-radius: 15px; */
+  /* background-color: rgba(230, 219, 241, 0.8); */
+  /* background-color: rgba(93, 73, 71, 0.5) ; */
+  
+}
+.highlight {
+  color: white;
+  font-size: large;
+  border: 2px solid rgba(78, 227, 10, 0.95);
+  box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 2px;
+ 
+}
+.description {
+  display: none;
+}
+.playlist-item:hover .description {
+  font-size: medium;
+  margin: 3px 2px;
+  padding: 2px;
+  display: block;
+  color: white;
 }
 .container {
-    border: 1px solid red;
+    border: 0px solid red;
 }
 
 #play {
@@ -68,27 +135,36 @@
 
 
  /* space between parts */
-  body {
-    margin: 0;
-    /* display: -webkit-box; */
-    /* display: -ms-flexbox; */
-    /* display: flex; */
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    color: #8D8D8D;
-    background: #FAF5FF;
-  }
+ 
   
   .music-player {
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    -ms-grid-row-align: center;
+    align-self: center;
     margin: auto;
     display: block;
-    width: 472px;
-    height: 515px;
-    border-radius: 6px;
+    width: 100%;
+    height: 120px;
+    /* border-radius: 6px; */
     overflow: hidden;
+    /* border-bottom: 1px solid #fb8500; */ 
+    /* border-bottom: 10px solid rgb(172, 116, 227); */
+    
+    
+    /* background-color: rgba(93, 73, 71, 0.8); */
+    border: 1px solid rgba(244, 228, 247, 0.9);
+    box-shadow: rgba(244, 228, 247, 0.75) 0px 1px 1px 2px;
+    margin: 1% 1%;
+    padding: 1%;
+    border-radius: 35px;
+    /* background-color: rgba(230, 219, 241, 0.8); */
+    /* background-color: rgba(93, 73, 71,  0.5) ; */
+    background-image: 
+      radial-gradient(rgba(100, 93, 104, 0.53),rgba(66, 62, 69, 0.904));    
+    /* background-color: rgba(230, 219, 241, 0.8) */
+
+
+    /* border: 1px solid red; */
   }
   
   .player-main {
@@ -98,8 +174,7 @@
     padding: 24px;
     box-sizing: border-box;
     /* border: 2px solid red; */
- 
-    background-color: rgba(230, 219, 241, 0.8);
+    
   }
   
   .main-current {
@@ -174,15 +249,18 @@
   }
   .main-control .btn._previous {
     margin-right: 17px;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-previous.svg");
+    
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-previous.svg"); */
+    background-image: url("../feather/skip-back.svg");
     background-size: auto 80%;
   }
   .main-control .btn._pause {
     margin-right: 17px;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-pause.svg");
+    background-image: url("../feather/pause.svg");
   }
   .main-control .btn._play {
     margin-right: 17px;
+    /* color: white; */
     background-image: 
       /* linear-gradient(rgba(230, 219, 241, 1),transparent), */
       url("../feather/play.svg");
@@ -190,7 +268,8 @@
   }
   .main-control .btn._next {
     margin-right: 24px;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-next.svg");
+    background-image: url("../feather/skip-forward.svg");
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/329679/music-player-freebie-next.svg"); */
     background-size: auto 80%;
   }
   .main-control .btn._timeline {
@@ -198,12 +277,14 @@
     height: auto;
     width: auto;
     opacity: 1;
+    /* border:  1px solid red; */
   }
   .main-control .btn._timeline > span {
     display: inline-block;
     vertical-align: middle;
     font-size: 12px;
-    color: #26107B;
+    /* color: #26107B; */
+    color: white;
   }
   .main-control .btn._timeline > span.timescope {
     position: relative;
@@ -221,7 +302,8 @@
     display: block;
     width: 0;
     height: 100%;
-    background-color: #26107B;
+    /* background-color: #26107B; */
+    background-color: white;
     cursor: pointer;
     z-index: 1;
   }
@@ -230,11 +312,11 @@
     opacity: .2;
   }
   .main-control .btn._timeline > span.timescope:after {
-    width: 63%;
+    width: var(--percentage);
   }
   .main-control .btn._timeline > span.timescope .timescope-dot {
     top: -2.5px;
-    left: 63%;
+    left: 0%;
     z-index: 3;
     width: 8px;
     height: 8px;
