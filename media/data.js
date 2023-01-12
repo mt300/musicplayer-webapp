@@ -1,7 +1,45 @@
-var data = ["you can't control my heart (ft shiloh).mp3","children-nick-cave.mpga","ciclo-sem-fim.mpga","vou-vencer.mpga","superman-theme.mpga"];
+var data = [
+    "you can't control my heart (ft shiloh).mp3",
+    "children-nick-cave.mpga","ciclo-sem-fim.mpga",
+    "vou-vencer.mpga",
+    "superman-theme.mpga"
+];
 
 // console.log(data)
 
+document.addEventListener("keydown", (e) => {
+    const keyName = e.key
+    const keyboard = {
+        " ": () => {
+            e.preventDefault();
+            playPause();
+        },
+        ArrowUp: () => {
+            e.preventDefault()
+            volume('+')
+        },
+        ArrowDown: () => {
+            e.preventDefault();
+            volume('-');
+        }
+    }
+    // console.log(Object.keys(keyboard))
+    if(Object.keys(keyboard).indexOf(keyName) >= 0){
+        keyboard[keyName]()
+    }
+});
+document.getElementById("searchInput").addEventListener("input", (e) => {
+    searchChange(e.target.value);
+})
+
+const volume = function(operation) {
+    var player = document.getElementById("player")
+    if( operation == '+'){
+        player.volume += 0.1
+    }else if(operation == '-'){
+        player.volume -= 0.1
+    }
+}
 const setSource = function () {
     var currentTrack = localStorage.getItem("current-track");
     var player = document.getElementById("player")
@@ -24,7 +62,7 @@ const setSource = function () {
                 item.classList.add("highlight")
             }else {
                 item.classList.remove("highlight")
-                console.log(" não ta tocando")
+                // console.log(" não ta tocando")
             }
             count++;
         }
@@ -40,6 +78,22 @@ const setSource = function () {
     
     playPause()
 }
+const clickItem = function (e) {
+    let id = e.target.querySelector(".id")
+    // if(id == null || id == undefined){
+    //     id = e.target.innerText
+    //     console.log("QS null but id is " + id)
+    // }
+    if(id == null){
+        id = e.target.parentElement.querySelector(".id")
+        
+    }
+    localStorage.setItem("current-track",id.innerText);
+    setSource()
+}
+const volumeChange = function(e){
+    console.log(e.target.volume)
+}
 
 const fetchPlaylist = function () {
     // playlist element
@@ -49,6 +103,8 @@ const fetchPlaylist = function () {
     
     // player element
     var player = document.getElementById("player")
+    player.addEventListener("volumechange", volumeChange)
+
 
     data.forEach( item => {
         // playlist display
@@ -60,7 +116,16 @@ const fetchPlaylist = function () {
         let description = document.createElement("div");
         description.classList.add("description");
         description.innerText = "This is an audio file"
+        // description.addEventListener("click",(e) => {
+        //     console.log("click")
+        // })
+        //id
+        let id = document.createElement("p");
+        id.innerText = data.indexOf(item)
+        id.classList.add("no-display","id")
+        song.appendChild(id)
         song.appendChild(description)
+        song.addEventListener("click",clickItem)
         playlist.appendChild(song)
         
     });
@@ -81,4 +146,58 @@ const fetchPlaylist = function () {
         // playPause()
     }   
     
+}
+
+
+
+const progressBar = function(duration) {
+    console.log("hello")
+}
+const playPause = function () {
+    var button = document.getElementById("playPauseBtn");
+    var player = document.getElementById("player");
+
+    if(button.classList[1] == "_play"){
+        button.classList.replace("_play","_pause")
+        player.play()
+    }else{
+        button.classList.replace("_pause","_play")
+        player.pause()        
+    }
+}
+
+const nextTrack = function () {
+    var currentTrack = localStorage.getItem("current-track")
+    var frequencyLength = localStorage.getItem("frequency-length");
+    var nextTrack = Number(currentTrack) + 1;
+        
+    if( nextTrack == frequencyLength){
+        nextTrack = 0;
+    }
+    localStorage.setItem("current-track", nextTrack)
+    setSource()
+}
+
+const previousTrack = function () {
+    var currentTrack = localStorage.getItem("current-track")
+    var frequencyLength = localStorage.getItem("frequency-length");
+    var nextTrack = Number(currentTrack) - 1;
+    if( nextTrack < 0){
+        nextTrack = frequencyLength-1;
+    }
+    localStorage.setItem("current-track", nextTrack)
+    setSource()
+}
+
+const searchChange = function (value) {
+    var list = document.getElementsByClassName("playlist-item");
+    for (let i=0; i< (list.length * 2); i++) {
+        // console.log(list[i].innerText)
+        if(list[i].innerText.includes(value) == false && value != "" && value != " " && value != undefined){
+            list[i].style = "display: none;"
+        }else{
+            list[i].style = "display: block;"
+        }       
+    }
+    // (value)
 }
