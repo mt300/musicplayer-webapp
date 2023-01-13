@@ -95,12 +95,15 @@ h2 {
 @keyframes blink {
   from {
     border: 2px solid rgba(78, 227, 10, 0.95);
-    box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 2px;
+    box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 1px,
+                rgba(59, 221, 30, 0.65) 0px 2px 2px 3px;
   
   }
   to {
     border: 2px solid rgba(110, 156, 135, 0.741);
-    box-shadow: rgba(110, 156, 135, 0.95) 0px 1px 1px 2px;
+    /* box-shadow: rgba(110, 156, 135, 0.95) 0px 1px 1px 2px; */
+    box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 1px,
+                rgba(59, 221, 30, 0.15) 0px 2px 2px 3px;
   
   }
 }
@@ -131,7 +134,8 @@ h2 {
   color: white;
   font-size: large;
   border: 2px solid rgba(78, 227, 10, 0.95);
-  box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 2px;
+  box-shadow: rgba(59, 221, 30, 0.95) 0px 1px 1px 1px,
+              rgba(59, 221, 30, 0.55) 0px 2px 2px 3px;
  
 }
 .description {
@@ -188,7 +192,16 @@ h2 {
     cursor: pointer;
   }
 
-
+ #pagination {
+  /* border: 1px solid red; */
+  max-width: fit-content;
+  /* background-color: aqua; */
+ } 
+ .page-item .page-link{
+  /* background-image: black !important; */
+  border: 1px solid white;
+  /* color: red ; */
+ }
  /* space between parts */
  
   
@@ -208,7 +221,10 @@ h2 {
     
     /* background-color: rgba(93, 73, 71, 0.8); */
     border: 1px solid rgba(244, 228, 247, 0.9);
-    box-shadow: rgba(244, 228, 247, 0.75) 0px 1px 1px 2px;
+    /* box-shadow: rgba(244, 228, 247, 0.65) 0px 1px 1px 2px; */
+    box-shadow:  rgba(68, 224, 11, 0.95) 0px 1px 1px 2px;
+                 /* rgba(150, 17, 173, 0.65) 0px 3px 3px 6px;  */
+
     margin: 1% 1%;
     padding: 1%;
     border-radius: 35px;
@@ -244,7 +260,7 @@ h2 {
 
   }
   .container-row {
-    height: 100vh;
+    height: 120vh;
     margin-top: 50px;
     padding: 5%;
     /* border: 1px solid red ; */
@@ -347,13 +363,13 @@ h2 {
 
   .main-control .btn._volumedec {
     margin-right: 17px;
-    background-image: url("../feather/plus.svg");
+    background-image: url("../feather/minus.svg");
     /* background-size: 80%; */
   }
 
   .main-control .btn._volume {
     margin-right: 17px;
-    background-image: url("../feather/plus.svg");
+    background-image: url("../feather/volume-1.svg");
     /* background-size: 80%; */
   }
 
@@ -405,6 +421,9 @@ h2 {
   .main-control .btn._timeline > span.timescope:after {
     width: var(--percentage);
   }
+  .main-control .btn._timeline > span.volumescope:after {
+    width: var(--vol-percentage) ;
+  }
   .main-control .btn._timeline > span.timescope .timescope-dot {
     top: -2.5px;
     left: 0%;
@@ -414,4 +433,9 @@ h2 {
     border-radius: 100%;
   }
 
-  
+  #track-title {
+    /* border: 1px solid red; */
+    width: 250px;
+    /* box-sizing:content-box; */
+    /* height: 30px; */
+  }
