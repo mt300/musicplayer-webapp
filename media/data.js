@@ -135,6 +135,7 @@ const clickItem = function (e) {
     }
     localStorage.setItem("current-track",id.innerText);
     setSource()
+    goHome()
 }
 const volumeChange = function(e){
     console.log(e.target.volume);
@@ -153,6 +154,10 @@ const fetchVolume = function () {
     console.log(volumeIcon)
     // volumeIcon.setProperty("background-image","")
 }
+const goHome = function () {
+    window.location.hash = "home"
+}
+
 const fetchPlaylist = function () {
     // playlist element
     var playlist = document.getElementById("playlist")
@@ -208,7 +213,7 @@ const fetchPlaylist = function () {
             newItem.innerHTML = paginationItem.innerHTML
             newItem.classList.add("page-item", "number-item")
             let link = newItem.querySelector('a');
-            link.href="#";
+            link.href="#home";
             link.innerText=i;
             link.addEventListener("click", (e) => {
                 var list = document.getElementsByClassName("playlist-item");
@@ -229,6 +234,7 @@ const fetchPlaylist = function () {
             console.log(newItem)
             pagination.appendChild(newItem)
         }else {
+            // href
             paginationItem.querySelector("a").addEventListener("click", (e) => {
                 var list = document.getElementsByClassName("playlist-item");
                 let max = Number(e.target.innerText)*10;
